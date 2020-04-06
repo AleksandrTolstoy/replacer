@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import argparse
+from typing import Tuple
 from dataclasses import dataclass
 
 
@@ -15,18 +16,19 @@ def create_parser():
     parser.add_argument('-o', '--old_text', required=True, metavar='old text', help='what will be replaced')
     parser.add_argument('-n', '--new_text', required=True, metavar='new text', help='on what will be replaced')
     parser.add_argument('-f', '--file_path', required=True, metavar='file path', help='file path')
-    parser.add_argument('-i', '--insertion')
+    parser.add_argument('-i', '--insertion', default=None, metavar='text to insert', help='replacement text')
     return parser
 
 
 @dataclass
 class Replacer:
+
     old_text: str
     new_text: str
     file_path: str
-    insertion: str = None
+    insertion: str
 
-    def _search_engine(self, string: str, found: bool):
+    def _search_engine(self, string: str, found: bool) -> Tuple[str, bool]:
         new_text_index = string.find(self.new_text)
         # conditions for setting starting values
         if not found:
@@ -60,7 +62,7 @@ class Replacer:
 
         return string, found
 
-    def run(self):
+    def run(self) -> None:
         """Replaces the old string in the text file on new string everywhere
 
         If the key --insert used, the text between the old and new
