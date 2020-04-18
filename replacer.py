@@ -97,7 +97,3 @@ if __name__ == '__main__':
     print(command_line_arguments)
     replacer = Replacer(**command_line_arguments)
     replacer.run()
-
-# also you can use
-# MacOS : sed -i '' 's/old-text/new-text/g' test_data1.txt
-# Linux : sed -i 's/old-text/new-text/g' test_data1.txt
