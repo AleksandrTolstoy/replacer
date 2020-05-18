@@ -5,8 +5,8 @@ With its help, you can do something similar to this.
 It is useful to use if you need to replace some template text in large files.  
 
 # How to run?
-1)clone or download this repository  
-2)run from the terminal as ```./replacer.py```  
+1. Clone or download this repository  
+2. Run from the terminal as: ```./replacer.py```  
 
 # Examples of using
 ```python3 replacer.py -o <old text> -n <new text> --file <file path>```  
